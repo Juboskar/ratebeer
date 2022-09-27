@@ -1,13 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to 'list of beers', beers_path %>
+
 <h1>Breweries</h1>
+
+<p>Number of breweries: <%= @breweries.count %></p>
 
 <div id="breweries">
   <% @breweries.each do |brewery| %>
-    <%= render brewery %>
-    <p>
-      <%= link_to "Show this brewery", brewery %>
-    </p>
+  <div id="<%= dom_id brewery %>">
+  <h2>
+      <%= link_to brewery.name, brewery %>
+  </h2>
+
+  <p>
+    <em>established in 
+      <%= brewery.year %>
+    </em>
+  </p>
+
+  <p>
+    <strong>Beer count:</strong>
+    <%= brewery.beers.count %>
+  </p>
+
+  </div>
   <% end %>
 </div>
 
