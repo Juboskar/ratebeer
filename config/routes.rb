@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post 'ratings', to: 'ratings#create'
   resources :beers
   resources :breweries
+  resources :ratings, only: [:index, :new, :create, :destroy]
 end
