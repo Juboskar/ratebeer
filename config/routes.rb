@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'ratings/new', to:'ratings#new'
   post 'ratings', to: 'ratings#create'
   get 'signup', to: 'users#new'
+  resource :session, only: [:new, :create, :destroy]
   resources :beers
   resources :breweries
   resources :ratings, only: [:index, :new, :create, :destroy]
