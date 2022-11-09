@@ -1,6 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<h2>username:</h2>
+<%= @user.username %>
+
+<p>
+Has made <%= @user.ratings.count %> ratings, average rating <%= @user.average_rating %>
+</p>
+
+
 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
