@@ -4,9 +4,19 @@
 <%= @user.username %>
 
 <p>
-Has made <%= @user.ratings.count %> ratings, average rating <%= @user.average_rating %>
+  Has made <%= @user.ratings.count %> ratings, average rating <%= @user.average_rating %>
 </p>
 
+<ul>
+  <% @user.ratings.each do |rating| %>
+    <li> 
+      <%= render rating %> <%= button_to 'delete', rating, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %> 
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "New rating", new_rating_path %>
 
 
 <div>
